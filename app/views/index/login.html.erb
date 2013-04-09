@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>后台登录</title>
+<link rel="stylesheet" href="/assets/flexi-background.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="/assets/styles.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="/assets/themes/icon.css" media="screent" />
+<link rel="stylesheet" href="/assets/themes/default/easyui.css" />
+<%= csrf_meta_tags %>
+<script type="text/javascript" src="/assets/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="/assets/jquery.easyui.min.js"></script>
+</head>
+<body>
+<div id="box"> <img src="/assets/logo.png" class="logo" alt="yourlogo" />
+  <h1>Member Login</h1>
+  <form action="" method="post">
+    <input id="username" name="username" type="text" onClick="this.value='';" onFocus="this.select()" onBlur="this.value=!this.value?'Username':this.value;" value="Username" />
+    <input id="password" name="password" type="password" onClick="this.value='';" onFocus="this.select()" onBlur="this.value=!this.value?'Password':this.value;" value="Password">
+    <input id="remember" name="remember" type="checkbox" id="remember" value="Remember" />
+    <div class="hover-opacity">
+      <label for="remember">Remember me</label>
+    </div>
+    <input type="submit" name="" value="Log In" />
+  </form>
+</div>
+<a href="" class="forgot">Forgot your username or password?</a>
+</body>
+<script type="text/javascript">
+  $(document).ready(function(){
+  <% if(defined?(@error_msg))  %>
+    $.messager.alert("提示","<%=@error_msg%>","error");
+  <% end %>
+  });
+</script>
+</html>
